@@ -1,16 +1,29 @@
-namespace ChatbotApp
+namespace App
 {
-    public class InstagramCanal : Canal
-  
-        public InstagramCanal(string usuario)
+    public class InstagramCanal
+    {
+        public string NomeCanal { get; set; }
+        public List<PhotoMessage> Mensagens { get; set; }
+
+        public InstagramCanal(string nomeCanal)
         {
-            Identificador = usuario;
+            NomeCanal = nomeCanal;
+            Mensagens = new List<PhotoMessage>();
         }
 
-        public override void EnviarMensagem(Mensagem mensagem)
+        public void AdicionarMensagem(PhotoMessage mensagem)
         {
-            Console.WriteLine("Enviando via Instagram:");
-            base.EnviarMensagem(mensagem);
+            Mensagens.Add(mensagem);
+        }
+
+        public void ExibirMensagens()
+        {
+            Console.WriteLine($"Canal: {NomeCanal}");
+            foreach (var msg in Mensagens)
+            {
+                msg.Display();
+                Console.WriteLine();
+            }
         }
     }
 }

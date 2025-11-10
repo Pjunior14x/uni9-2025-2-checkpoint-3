@@ -1,17 +1,12 @@
-namespace ChatbotApp
+namespace App
 {
     public class WhatsAppCanal : Canal
     {
-        // WhatsApp usa número de telefone
-        public WhatsAppCanal(string telefone)
-        {
-            Identificador = telefone;
-        }
+        public WhatsAppCanal(string nome) : base(nome) { }
 
-        public override void EnviarMensagem(Mensagem mensagem)
+        public override void EnviarMensagem(string mensagem)
         {
-            Console.WriteLine("Enviando via WhatsApp:");
-            base.EnviarMensagem(mensagem);
+            Console.WriteLine($"[WhatsApp - {Nome}] {mensagem}");
         }
     }
 }

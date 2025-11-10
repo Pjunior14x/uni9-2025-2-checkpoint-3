@@ -1,17 +1,12 @@
-namespace ChatbotApp
+namespace App
 {
     public class FacebookCanal : Canal
     {
+        public FacebookCanal(string nome) : base(nome) { }
 
-        public FacebookCanal(string usuario)
+        public override void EnviarMensagem(string mensagem)
         {
-            Identificador = usuario;
-        }
-
-        public override void EnviarMensagem(Mensagem mensagem)
-        {
-            Console.WriteLine("Enviando via Facebook:");
-            base.EnviarMensagem(mensagem);
+            Console.WriteLine($"[Facebook - {Nome}] {mensagem}");
         }
     }
 }
