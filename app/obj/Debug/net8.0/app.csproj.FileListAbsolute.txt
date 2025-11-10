@@ -1,0 +1,5 @@
+/workspaces/uni9-2025-2-checkpoint-3/app/obj/Debug/net8.0/app.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/uni9-2025-2-checkpoint-3/app/obj/Debug/net8.0/app.AssemblyInfoInputs.cache
+/workspaces/uni9-2025-2-checkpoint-3/app/obj/Debug/net8.0/app.AssemblyInfo.cs
+/workspaces/uni9-2025-2-checkpoint-3/app/obj/Debug/net8.0/app.csproj.CoreCompileInputs.cache
+/workspaces/uni9-2025-2-checkpoint-3/app/obj/Debug/net8.0/app.sourcelink.json
