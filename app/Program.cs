@@ -1,29 +1,49 @@
-﻿using System;
+﻿// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Para qual canal você quer enviar mensagem?");
+Console.WriteLine("1. WhatsApp");
+Console.WriteLine("2. Telegram");
+Console.WriteLine("3. Instagram");
+Console.WriteLine("4. Facebook");
 
-namespace ChatbotApp
+int canal = 0;
+string resposta = Console.ReadLine();
+if (!int.TryParse(resposta, out canal))
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-
-            TextoMensagem texto = new TextoMensagem { TextoMensagem = "Olá!", DataEnvio = DateTime.Now };
-            VideoMensagem video = new VideoMensagem { TextoMensagem = "Vídeo legal", Arquivo = "video.mp4", Formato = "MP4", Duracao = TimeSpan.FromMinutes(2) };
-            FotoMensagem foto = new FotoMensagem { TextoMensagem = "Foto bonita", Arquivo = "foto.jpg", Formato = "JPG" };
-            ArquivoMensagem arquivo = new ArquivoMensagem { TextoMensagem = "Documento", Arquivo = "doc.pdf", Formato = "PDF" };
-
-            WhatsAppCanal whatsapp = new WhatsAppCanal("++5511999584999");
-            TelegramCanal telegram = new TelegramCanal("@usuario_telegram");
-            FacebookCanal facebook = new FacebookCanal("usuario_facebook");
-            InstagramCanal instagram = new InstagramCanal("usuario_instagram");
+    Console.WriteLine("Opção inválida");
+    return;
+}
 
 
-            whatsapp.EnviarMensagem(texto);
-            telegram.EnviarMensagem(video);
-            facebook.EnviarMensagem(foto);
-            instagram.EnviarMensagem(arquivo);
+TextMessage messageBase = new TextMessage("Olá");
+VideoMessage video = new VideoMessage("Olá");
 
-            Console.ReadLine();
-        }
-    }
+switch (canal)
+{
+    case 1:
+        var whats = new WhatsApp();
+        whats.EnviarMensagem("12345678", messageBase);
+        whats.EnviarMensagem("87654321", video);
+        break;
+
+    case 2:
+        var telegram = new Telegram();
+        telegram.EnviarMensagem("99999999", messageBase);
+        telegram.EnviarMensagem("88888888", video);
+        break;
+
+    case 3:
+        var insta = new Instagram();
+        insta.EnviarMensagem("usuario_insta", messageBase);
+        insta.EnviarMensagem("usuario_insta", video);
+        break;
+
+    case 4:
+        var face = new Facebook();
+        face.EnviarMensagem("usuario_face", messageBase);
+        face.EnviarMensagem("usuario_face", video);
+        break;
+
+    default:
+        Console.WriteLine("Canal inválido");
+        break;
 }

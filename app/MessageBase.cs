@@ -1,18 +1,11 @@
-using System;
+public abstract class MessageBase{
 
-namespace ChatbotApp
-{
-
-    public abstract class Mensagem
-    {
-        private string textoMensagem;
-
-        public string TextoMensagem
-        {
-            get { return textoMensagem; }
-            set { textoMensagem = value; }
-        }
-
-        public abstract void ExibirDetalhes();
+    protected MessageBase(string message){
+        Message = message;
+        SendAt = DateTime.now;
     }
+
+    public string Message {get;}
+    
+    public DateTime SendAt {get;}
 }

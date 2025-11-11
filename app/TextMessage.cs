@@ -1,20 +1,8 @@
-using System;
+public class TextMessage : MessageBase{
 
-namespace ChatbotApp
-{
-    public class TextoMensagem : Mensagem
+    public TextMessage(string message)
+        :base(message)
     {
-        private DateTime dataEnvio;
-
-        public DateTime DataEnvio
-        {
-            get { return dataEnvio; }
-            set { dataEnvio = value; }
-        }
-
-        public override void ExibirDetalhes()
-        {
-            Console.WriteLine($"Texto: {TextoMensagem}, Data de Envio: {DataEnvio}");
-        }
+        
     }
 }
